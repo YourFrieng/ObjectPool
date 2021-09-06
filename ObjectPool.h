@@ -18,7 +18,7 @@ class ObjectPool
 {
 public:
     ObjectPool( size_t size = 1 );
-    ~ObjectPool( );
+    ~ObjectPool( ) = default;
     T* get_obj( );
     void release_obj( T* );
     void reserve( size_t );
@@ -32,10 +32,6 @@ private:
 template< typename T >
 ObjectPool< T >::ObjectPool( size_t size )
 :m_objects( size )
-{
-}
-template< typename T >
-ObjectPool< T >::~ObjectPool( )
 {
 }
 
